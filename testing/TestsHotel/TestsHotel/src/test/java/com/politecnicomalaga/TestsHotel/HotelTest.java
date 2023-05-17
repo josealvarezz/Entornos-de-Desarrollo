@@ -1,3 +1,5 @@
+package com.politecnicomalaga.TestsHotel;
+
 import com.politecnicomalaga.TestsHotel.Cliente;
 import com.politecnicomalaga.TestsHotel.Hotel;
 import static org.junit.jupiter.api.Assertions.*;
