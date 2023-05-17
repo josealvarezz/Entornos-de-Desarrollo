@@ -168,19 +168,62 @@ class PacienteTest {
 	
 	@Test
 	void testAddyTodosTratamiento() {
-		assertTrue(true);
+		Paciente p = new Paciente(nombre, apellidos, sTelefono, sEmail, sDni, sFNac);
+
+		assertTrue(nombre.equals(p.getsNombre()));
+		assertTrue(apellidos.equals(p.getsApellidos()));
+		assertTrue(sTelefono.equals(p.getsTelefono()));
+		assertTrue(sEmail.equals(p.getsEmail()));
+		assertTrue(sDni.equals(p.getsDni()));
+		assertTrue(sFNac.equals(p.getsFNac()));
+		assertNull(p.todosTratamientos());
+
+		Tratamiento t = new Tratamiento(cod, descr, fecha, precio);
+
+		assertTrue(cod.equals(t.getsCodigo()));
+		assertTrue(descr.equals(t.getsDescripcion()));
+		assertTrue(fecha.equals(t.getsFecha()));
+		assertTrue(precio == (t.getfPrecio()));
+
+		p.nuevoTratamiento(t.getsCodigo(), t.getsDescripcion(), t.getsFecha(), t.getfPrecio());
+
+		assertTrue(p.todosTratamientos().length == 1);
+
+		for (int i = 0; i < 50; i++) {
+			p.nuevoTratamiento(cod + i, descr + i, fecha + i, precio + i);
+		}
+
+		assertTrue(p.todosTratamientos().length == 51);
+
+		p.nuevoTratamiento(t1.getsCodigo(), t1.getsDescripcion(), t1.getsFecha(), t1.getfPrecio());
+
 	}
 	
 	
 	@Test
 	void testSetValor() {
-		assertTrue(true);
+		Paciente p = new Paciente(nombre, apellidos, sTelefono, sEmail, sDni, sFNac);
+		assertTrue(p.getsNombre().equals(nombre));
+
+		p.setValor("i", Paciente.AtributosPaciente.NOMBRE);
+
+		assertFalse(p.getsNombre().equals(nombre));
+		assertTrue(p.getsNombre().equals("i"));
+
 	}
 	
 	@Test
 	void testToString() {
-		assertTrue(true);
+		Paciente p = new Paciente(nombre, apellidos, sTelefono, sEmail, sDni, sFNac);
+		assertTrue(nombre.equals(p.getsNombre()));
+		assertTrue(apellidos.equals(p.getsApellidos()));
+		assertTrue(sTelefono.equals(p.getsTelefono()));
+		assertTrue(sEmail.equals(p.getsEmail()));
+		assertTrue(sDni.equals(p.getsDni()));
+		assertTrue(sFNac.equals(p.getsFNac()));
+		assertNull(p.todosTratamientos());
+
+		assertTrue(p.toString().equals(String.format("%15s#%25s#%9s#%10s#%20s#%13s", nombre, apellidos, sDni, sFNac, sEmail,sTelefono)));
 	}
-	
-	
+
 }
