@@ -1,0 +1,21 @@
+<dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+</dependencies>
+
+y luego en la clase test:
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+
+y además importamos (com.politecnicomalaga.etc...) las clases que nos hagan falta para comprobar ese test.
